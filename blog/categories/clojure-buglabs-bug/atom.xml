@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Conjuring Daemons]]></title>
-  <link href="http://henrycase.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Clojure BugLabs Bug | Conjuring Daemons]]></title>
+  <link href="http://henrycase.github.com/blog/categories/clojure-buglabs-bug/atom.xml" rel="self"/>
   <link href="http://henrycase.github.com/"/>
   <updated>2012-07-02T22:21:28-06:00</updated>
   <id>http://henrycase.github.com/</id>
@@ -35,7 +35,7 @@ how difficult) it would be to hack in Clojure on one; the only problem
 being a nearly complete lack of skills in Java.</p>
 
 <p>One of the things the Bug provides is a web services interface. As of
-right now, there isn&#8217;t a good way to hook into the OSGi from within a
+right now, there isn't a good way to hook into the OSGi from within a
 Clojure project. However, it is entirely possible to consume the web
 services by parsing the XML provided.</p>
 
@@ -51,9 +51,8 @@ is a case of startup times: actual runtimes are comparable, but rather
 a matter of the time it takes leiningen to start on the Bug, which is
 rather resource constrained compared to the typical use-case.)</p>
 
-<p>Here are some numbers to prove this:</p>
-
-<figure class='code'><figcaption><span>Running the code from leiningen </span></figcaption>
+<p>Here are some numbers to prove this:
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Running the code from leiningen </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -68,19 +67,18 @@ rather resource constrained compared to the typical use-case.)</p>
 </span><span class='line'><span class="o">[</span>+<span class="o">]</span> checking <span class="k">for </span>location service...
 </span><span class='line'><span class="o">[</span>+<span class="o">]</span> location service found.
 </span><span class='line'><span class="o">[</span>+<span class="o">]</span> polling...
-</span><span class='line'><span class="o">[</span>!<span class="o">]</span> no fix!
+</span><span class='line'><span class="o">[</span>!<span class="o">]</span> no fix!&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'>real  1m21.620s
-</span><span class='line'>user  1m2.547s
-</span><span class='line'>sys   0m4.203s
-</span><span class='line'><span class="k">case</span>@threejane:~/BugLocation<span class="nv">$ </span>
-</span></code></pre></td></tr></table></div></figure>
-
+</span><span class='line'>&lt;p&gt;real    1m21.620s
+</span><span class='line'>user    1m2.547s
+</span><span class='line'>sys 0m4.203s
+</span><span class='line'><span class="k">case</span>@threejane:~/BugLocation<span class="err">$</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Note that <code>run.sh</code> is simply a wrapper around calling the jar; it
 sources the <code>environ.sh</code> and runs the jarfile, passing arguments through.</p>
 
-<figure class='code'><figcaption><span>Running the code from the uberjar </span></figcaption>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Running the code from the uberjar </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -95,17 +93,16 @@ sources the <code>environ.sh</code> and runs the jarfile, passing arguments thro
 </span><span class='line'><span class="o">[</span>+<span class="o">]</span> checking <span class="k">for </span>location service...
 </span><span class='line'><span class="o">[</span>+<span class="o">]</span> location service found.
 </span><span class='line'><span class="o">[</span>+<span class="o">]</span> polling...
-</span><span class='line'><span class="o">[</span>!<span class="o">]</span> no fix!
+</span><span class='line'><span class="o">[</span>!<span class="o">]</span> no fix!&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'>real  0m33.424s
-</span><span class='line'>user  0m14.461s
-</span><span class='line'>sys   0m1.203s
-</span><span class='line'><span class="k">case</span>@threejane:~/deploy/BugLocation<span class="nv">$ </span>
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>&lt;p&gt;real    0m33.424s
+</span><span class='line'>user    0m14.461s
+</span><span class='line'>sys 0m1.203s
+</span><span class='line'><span class="k">case</span>@threejane:~/deploy/BugLocation<span class="err">$</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-
-<p>If you need a faster response time, you&#8217;ll want to run from the
-jar. Although at 33 seconds for the &#8220;fast&#8221; start, it may not be a huge
+<p>If you need a faster response time, you'll want to run from the
+jar. Although at 33 seconds for the "fast" start, it may not be a huge
 concern.</p>
 
 <p>As mentioned in the title, this is merely a first stab at the
